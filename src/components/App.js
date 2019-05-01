@@ -8,7 +8,7 @@ import {
 import '../App.css'
 
 // Components
-import ProductList from './ProductList'
+import ProductPage from './ProductPage'
 import Cart from './Cart'
 import Login from './Login'
 
@@ -20,7 +20,7 @@ class App extends React.Component {
           <Link className="item" to="/">
             <i class="fas fa-home"></i>
           </Link>
-          <Link className="item" to="/ProductList">
+          <Link className="item" to="/ProductPage">
             Products
                   </Link>
           <Link className="item right" to="/Cart">
@@ -34,13 +34,21 @@ class App extends React.Component {
               <Login />
             </div>
           )} />
-          <Route path="/ProductList" component={ProductList} />
+          <Route path="/ProductPage" component={ProductPage} />
           <Route path="/Cart" component={Cart} />
 
           <Route render={() => (
             <div> 404 Not found </div>
           )} />
         </Switch>
+        <div>
+          <footer className="ui two item menu">
+            <div className="item">Questions? Email products@thiswebsite.com</div>
+            <div className="item"><div>Like us? Follow us on twitter!</div><i class="fab fa-twitter"></i>
+</div>
+          </footer>
+        </div>
+
       </Router>
     )
   }
