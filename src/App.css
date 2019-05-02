@@ -31,3 +31,7 @@ footer {
 .priceStyle{
   text-align: center !important;
 }
+
+.clickableCard:hover{
+  cursor: pointer;
+}

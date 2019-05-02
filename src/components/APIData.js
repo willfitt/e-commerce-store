@@ -48,7 +48,7 @@ class APIData extends React.Component {
                       <i class="right floated star icon"></i>
                       <div className="productPageCardTitle">{productName}</div>
                     </div>
-                    <div className="ui image">
+                    <div className="ui image clickableCard">
                       <img className="ui mini image" src={image} alt={productName}></img>
                     </div>
                     <div className="content">
