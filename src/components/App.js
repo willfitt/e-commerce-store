@@ -12,19 +12,20 @@ import ProductPage from './ProductPage'
 import Cart from './Cart'
 import Login from './Login'
 
+
 class App extends React.Component {
   render() {
     return (
       <Router>
         <div className="ui menu">
           <Link className="item" to="/">
-            <i class="fas fa-home"></i>
+            <i className="fas fa-home"></i>
           </Link>
           <Link className="item" to="/ProductPage">
             Products
-                  </Link>
+          </Link>
           <Link className="item right" to="/Cart">
-            <i class="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart"></i>
           </Link>
         </div>
 
@@ -44,7 +45,7 @@ class App extends React.Component {
         <div>
           <footer className="ui two item menu">
             <div className="item">Questions? Email products@thiswebsite.com</div>
-            <div className="item"><div>Like us? Follow us on twitter!</div><i class="fab fa-twitter"></i>
+            <div className="item"><div>Like us? Follow us on twitter!</div><i className="fab fa-twitter"></i>
 </div>
           </footer>
         </div>

@@ -19,3 +19,15 @@ footer {
   height: 30px;
   font-size: 16px;
 }
+
+.topBar{
+  padding-bottom: 30px;
+}
+
+.productPageCardTitle{
+  font-size: 20px;
+}
+
+.priceStyle{
+  text-align: center !important;
+}

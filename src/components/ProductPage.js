@@ -1,7 +1,7 @@
 import React from 'react'
 
 //component
-import Product from './Product'
+// import Product from './Product'
 import Searchbar from './SearchBar'
 import APIData from './APIData'
 
