@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import store from '../store';
 
 class APIData extends React.Component {
   state = {
@@ -23,7 +24,9 @@ class APIData extends React.Component {
         }))
       )
       .then(productData => {
-        this.setState({
+        store.dispatch({
+          type: 'ADD_ITEMS',
+          
           productData,
           isLoading: false
         });
@@ -42,10 +45,10 @@ class APIData extends React.Component {
               productData.map(product => {
                 const { productName, id, image, rating, price } = product;
                 return (
-                  <div key={id} className="ui fluid card">
+                  <div key={id} id={id} className="ui fluid card">
                     <div className="content">
-                      <div class="right floated meta">{rating}</div>
-                      <i class="right floated star icon"></i>
+                      <div className="right floated meta">{rating}</div>
+                      <i className="right floated star icon"></i>
                       <div className="productPageCardTitle">{productName}</div>
                     </div>
                     <div className="ui image clickableCard">
@@ -61,7 +64,7 @@ class APIData extends React.Component {
                 );
               })
             ) : (
-                <p>Loading...</p>
+                <p>Is Loading...</p>
               )}
           </div>
 
