@@ -39,12 +39,14 @@ function productsReducer(state = [], action) {
             productItems.push({
                 
             })
+            return productItems
     }
 }
 
 const reducer = combineReducers({
    cartItems: cartReducer,
-   user: userReducer
+   user: userReducer,
+   products: productsReducer
 })
 
 const store = createStore(reducer)
