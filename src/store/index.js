@@ -35,11 +35,9 @@ function userReducer(state = "", action) {
 function productsReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_ITEMS':
-            let productItems = [...state]
-            productItems.push({
-                
-            })
-            return productItems
+            return action.productItems
+        default: 
+            return state
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import store from '../store';
 
 class SearchBar extends React.Component {
     state = {
@@ -10,7 +11,8 @@ class SearchBar extends React.Component {
     }
 
     handleChange = (event) => {
-        this.setState({
+        store.dispatch({
+            type: 'FILTER_ITEMS',
             value: event.target.value
         })
     }
