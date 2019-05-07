@@ -11,6 +11,7 @@ import '../App.css'
 import ProductPage from './ProductPage'
 import Cart from './Cart'
 import Login from './Login'
+import ProductDetails from './ProductDetails';
 
 
 class App extends React.Component {
@@ -23,6 +24,9 @@ class App extends React.Component {
           </Link>
           <Link className="item" to="/ProductPage">
             Products
+          </Link>
+          <Link className="item" to="/ProductDetails">
+            ProductDetails
           </Link>
           <Link className="item right" to="/Cart">
             <i className="fas fa-shopping-cart"></i>
@@ -37,6 +41,7 @@ class App extends React.Component {
           )} />
           <Route path="/ProductPage" component={ProductPage} />
           <Route path="/Cart" component={Cart} />
+          <Route path="/ProductDetails" component={ProductDetails} />
 
           <Route render={() => (
             <div> 404 Not found </div>

@@ -1,6 +1,15 @@
 import React from 'react'
 import axios from 'axios'
-import store from '../store';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+import store from '../store'
+import ProductDetails from './ProductDetails'
+import ProductDetailsRoute from './ProductDetailsRoute';
 
 class APIData extends React.Component {
   componentDidMount() {
@@ -24,6 +33,9 @@ class APIData extends React.Component {
       }
       )
   }
+  goToDetails() {
+    
+  }
 
   render() {
     return (
@@ -40,14 +52,15 @@ class APIData extends React.Component {
                       <i className="right floated star icon"></i>
                       <div className="productPageCardTitle">{productName}</div>
                     </div>
-                    <div className="ui image clickableCard" onclick="">
-                      <img className="ui mini image" src={image} alt={productName}></img>
-                    </div>
+                      <div className="ui image">
+                        <img className="ui mini image" src={image} alt={productName}></img>
+                        <ProductDetailsRoute></ProductDetailsRoute>
+                      </div>
                     <div className="content">
                       <h4 className="priceStyle">${price}</h4>
                     </div>
                     <div className="content">
-                      <div className="ui bottom attached button" onclick="">Add to Cart</div>
+                      <div className="ui bottom attached button" onClick={this.addToCart}>Add to Cart</div>
                     </div>
                   </div>
                 );

@@ -45,3 +45,14 @@ footer {
   border: solid black 1px !important;
   padding: 20px !important;
 }
+
+.quantityBox{
+  border: solid grey 2px;
+  margin: 5px;
+  padding: 3px;
+}
+
+.cartTotal{
+  text-align: right;
+  margin-right: 20px;
+}

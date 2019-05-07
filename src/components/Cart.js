@@ -35,22 +35,22 @@ class Cart extends React.Component {
                 <div className="ui items">
                     <div className="item cartItem">
                         <div className="image">
-                            <img src="/images/wireframe/image.png"></img>
+                            <img src="{image}" alt="{productName}"></img>
                         </div>
                         <div className="content">
-                            <a className="header">productName</a>
+                            <p className="header">productName</p>
                             <div className="extra">description</div>
-                            <div className="description">
+                            <div className="description right floated">
                                 <span>Quantity</span>
-                                <span></span>
+                                <span className="quantityBox">0</span>
                                 <div className="ui  mini icon buttons">
-                                    <button className="ui button">
+                                    <button className="ui button" onClick={this.increment}>
                                         <i className="plus icon"></i>
                                     </button>
-                                    <button className="ui button">
+                                    <button className="ui button" onClick={this.decrement}>
                                         <i className="minus icon"></i>
                                     </button>
-                                    <button className="ui button">
+                                    <button className="ui button" onClick={this.remove}>
                                         <i className="delete icon"></i>
                                     </button>
                                 </div>
@@ -59,8 +59,10 @@ class Cart extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div>$TOTAL</div>
-                <button>Proceed to Checkout</button>
+                <div className="card right floated">
+                    <h4 className="cartTotal">$100.00</h4>
+                    <button className="ui button right floated">Proceed to Checkout</button>
+                </div>
             </div>
 
         )

@@ -18,17 +18,17 @@ class ProductDetails extends React.Component {
             <div>
                 <div className="ui fluid card">
                     <div className="image">
-                        <img src={image} alt={productName}></img>
+                        <img src="{image}" alt="{productName}"></img>
                     </div>
                     <div className="content">
-                        <a className="header">PRODUCT DESCRIPTION</a>
+                        <p className="header">PRODUCT DESCRIPTION</p>
                     </div>
-                    <div class="extra content">
-                        <span class="right floated">
-                            <button className="ui button" onclick="">Add to Cart</button>
+                    <div className="extra content">
+                        <span className="right floated">
+                            <button className="ui button" onClick={this.addToCart}>Add to Cart</button>
                         </span>
                         <span className="priceStyle">
-                            {price}
+                            price
                     </span>
                     </div>
                 </div>
