@@ -9,7 +9,7 @@ class APIData extends React.Component {
       .get("https://my-json-server.typicode.com/tdmichaelis/typicode/products")
       .then(response => {
         store.dispatch({
-          type: 'ADD_ITEMS',
+          type: 'CREATE_ITEMS',
           productItems: response.data.map(product => ({
             id: `${product.id}`,
             productName: `${product.title}`,
@@ -30,7 +30,7 @@ class APIData extends React.Component {
       <React.Fragment>
         <div>
           <div className="ui three cards">
-            { !false ? (
+            {!false ? (
               store.getState().products.map(product => {
                 const { productName, id, image, rating, price } = product;
                 return (
@@ -40,41 +40,41 @@ class APIData extends React.Component {
                       <i className="right floated star icon"></i>
                       <div className="productPageCardTitle">{productName}</div>
                     </div>
-                    <div className="ui image clickableCard">
+                    <div className="ui image clickableCard" onclick="">
                       <img className="ui mini image" src={image} alt={productName}></img>
                     </div>
                     <div className="content">
                       <h4 className="priceStyle">${price}</h4>
                     </div>
                     <div className="content">
-                      <div className="ui bottom attached button">Add to Cart</div>
+                      <div className="ui bottom attached button" onclick="">Add to Cart</div>
                     </div>
                   </div>
                 );
               })
             ) : (
-              store.getState().products.map(product => {
-                const { productName, id, image, rating, price } = product;
-                return (
-                  <div key={id} id={id} className="ui fluid card">
-                    <div className="content">
-                      <div className="right floated meta">{rating}</div>
-                      <i className="right floated star icon"></i>
-                      <div className="productPageCardTitle">{productName}</div>
+                store.getState().products.map(product => {
+                  const { productName, id, image, rating, price } = product;
+                  return (
+                    <div key={id} id={id} className="ui fluid card">
+                      <div className="content">
+                        <div className="right floated meta">{rating}</div>
+                        <i className="right floated star icon"></i>
+                        <div className="productPageCardTitle">{productName}</div>
+                      </div>
+                      <div className="ui image clickableCard">
+                        <img className="ui mini image" src={image} alt={productName}></img>
+                      </div>
+                      <div className="content">
+                        <h4 className="priceStyle">${price}</h4>
+                      </div>
+                      <div className="content">
+                        <div className="ui bottom attached button">Add to Cart</div>
+                      </div>
                     </div>
-                    <div className="ui image clickableCard">
-                      <img className="ui mini image" src={image} alt={productName}></img>
-                    </div>
-                    <div className="content">
-                      <h4 className="priceStyle">${price}</h4>
-                    </div>
-                    <div className="content">
-                      <div className="ui bottom attached button">Add to Cart</div>
-                    </div>
-                  </div>
-                );
-              })
-            )}
+                  );
+                })
+              )}
           </div>
 
         </div>

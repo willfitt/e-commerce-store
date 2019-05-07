@@ -34,7 +34,7 @@ function userReducer(state = "", action) {
 
 function productsReducer(state = [], action) {
     switch (action.type) {
-        case 'ADD_ITEMS':
+        case 'CREATE_ITEMS':
             return action.productItems
         default: 
             return state

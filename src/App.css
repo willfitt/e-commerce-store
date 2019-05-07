@@ -35,3 +35,13 @@ footer {
 .clickableCard:hover{
   cursor: pointer;
 }
+
+.cartHeader{
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.cartItem{
+  border: solid black 1px !important;
+  padding: 20px !important;
+}
