@@ -1,18 +1,13 @@
 import React from 'react'
 import axios from 'axios'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  Redirect
-} from 'react-router-dom'
 import store from '../store'
-import ProductDetails from './ProductDetails'
 import ProductDetailsRoute from './ProductDetailsRoute';
 
 class APIData extends React.Component {
+  _isMounted = false;
+
   componentDidMount() {
+    this._isMounted = true;
     store.subscribe(() => this.forceUpdate)
     axios
       .get("https://my-json-server.typicode.com/tdmichaelis/typicode/products")
@@ -33,8 +28,8 @@ class APIData extends React.Component {
       }
       )
   }
-  goToDetails() {
-    
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

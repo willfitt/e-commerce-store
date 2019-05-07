@@ -3,9 +3,9 @@ import store from '../store'
 
 class ProductDetails extends React.Component {
 
-    componentDidMount() {
-        store.subscribe(() => this.forceUpdate())
-    }
+    // componentDidMount() {
+    //     store.subscribe(() => this.forceUpdate())
+    // }
 
     addToCart() {
         store.dispatch({
