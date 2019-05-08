@@ -41,7 +41,7 @@ class App extends React.Component {
           )} />
           <Route path="/ProductPage" component={ProductPage} />
           <Route path="/Cart" component={Cart} />
-          <Route path="/ProductDetails" component={ProductDetails} />
+          <Route path="/ProductDetails/:id" component={ProductDetails} />
 
           <Route render={() => (
             <div> 404 Not found </div>

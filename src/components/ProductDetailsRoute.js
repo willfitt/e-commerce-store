@@ -1,12 +1,16 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-const ProductDetailsRoute = () => (
-  <Route render={({ history}) => (
+const ProductDetailsRoute = (data) => (
+  <Route render={({ history }) => (
     <button
       type='button'
       className="ui fluid button"
-      onClick={() => { history.push('/ProductDetails') }}
+      onClick={() => { history.push({
+        pathname: '/ProductDetails',
+        state: data
+      }) 
+    }}
     >
       See Details
     </button>

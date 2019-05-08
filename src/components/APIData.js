@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import store from '../store'
-import ProductDetailsRoute from './ProductDetailsRoute';
+import ProductDetailsRoute from './ProductDetailsRoute'
+import { Link } from 'react-router-dom'
 
 class APIData extends React.Component {
   _isMounted = false;
@@ -36,20 +37,21 @@ class APIData extends React.Component {
     return (
       <React.Fragment>
         <div>
-          <div className="ui three cards">
+          <div className="ui four stackable cards">
             {!false ? (
               store.getState().products.map(product => {
                 const { productName, id, image, rating, price } = product;
                 return (
-                  <div key={id} id={id} className="ui fluid card">
+                  <div key={id} id={id} className="ui fluid card productListCard">
                     <div className="content">
                       <div className="right floated meta">{rating}</div>
                       <i className="right floated star icon"></i>
                       <div className="productPageCardTitle">{productName}</div>
                     </div>
                       <div className="ui image">
-                        <img className="ui mini image" src={image} alt={productName}></img>
-                        <ProductDetailsRoute></ProductDetailsRoute>
+                        <Link to={'/ProductDetails/'+id}>
+                          <img className="ui image listImage" src={image} alt={productName}></img>
+                        </Link>
                       </div>
                     <div className="content">
                       <h4 className="priceStyle">${price}</h4>

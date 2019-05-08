@@ -56,3 +56,26 @@ footer {
   text-align: right;
   margin-right: 20px;
 }
+
+.image{
+  background-color: white !important;
+
+}
+
+.listImage{
+  max-height: 150px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productListCard{
+  max-height: 350px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
