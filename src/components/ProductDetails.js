@@ -8,10 +8,13 @@ class ProductDetails extends React.Component {
         
     }
 
-    addToCart() {
+    addToCart(cartItems, e) {
+        e.preventDefault();
         store.dispatch({
             type: 'ADD_TO_CART',
+            cartItems
         })
+        console.log(store.getState())
     }
 
     render() {
@@ -20,16 +23,16 @@ class ProductDetails extends React.Component {
         })
         return (
             <div>
-                <div className="ui fluid card">
+                <div className="ui card">
                     <div className="image">
-                        <img src={product.image} alt={product.productName}></img>
+                        <img className="detailsImage" src={product.image} alt={product.productName}></img>
                     </div>
                     <div className="content">
                         <p className="header">{product.description}</p>
                     </div>
                     <div className="extra content">
                         <span className="right floated">
-                            <button className="ui button" onClick={this.addToCart}>Add to Cart</button>
+                            <button className="ui button" onClick={(e) => this.addToCart(product, e)}>Add to Cart</button>
                         </span>
                         <span className="priceStyle">
                             {product.price}

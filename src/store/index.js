@@ -5,9 +5,9 @@ function cartReducer(state = [], action) {
         case 'ADD_TO_CART':
             let newCartItems = [...state]
             newCartItems.push({
-                
+                object: action.cartItems
             })
-            return state
+            return newCartItems
         case 'INCREASE_QUANTITY':
                 // LOGIC
                 return  state

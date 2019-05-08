@@ -70,12 +70,14 @@ footer {
   margin-right: auto;
 }
 
-.productListCard{
-  max-height: 350px;
+.detailsImage{
+  height: 50%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
+.productListCard{
+  max-height: 350px;
 }
