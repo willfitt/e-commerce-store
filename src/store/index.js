@@ -4,9 +4,9 @@ function cartReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TO_CART':
             let newCartItems = [...state]
-            newCartItems.push({
-                object: action.cartItems
-            })
+            newCartItems.push(
+                action.cartItems
+            )
             return newCartItems
         case 'INCREASE_QUANTITY':
                 // LOGIC

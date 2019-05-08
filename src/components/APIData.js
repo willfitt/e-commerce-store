@@ -33,6 +33,14 @@ class APIData extends React.Component {
     this._isMounted = false;
   }
 
+  addToCart(cartItems, e) {
+    e.preventDefault();
+    store.dispatch({
+        type: 'ADD_TO_CART',
+        cartItems
+    })
+    console.log(store.getState())
+}
   render() {
     return (
       <React.Fragment>
@@ -57,7 +65,7 @@ class APIData extends React.Component {
                       <h4 className="priceStyle">${price}</h4>
                     </div>
                     <div className="content">
-                      <div className="ui bottom attached button" onClick={this.addToCart}>Add to Cart</div>
+                      <div className="ui bottom attached button" onClick={(e) => this.addToCart(product, e)}>Add to Cart</div>
                     </div>
                   </div>
                 );
