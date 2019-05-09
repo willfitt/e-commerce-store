@@ -10,40 +10,41 @@ class Cart extends React.Component {
 
     }
 
-    increment() {
+    increment(id) {
         store.dispatch({
             type: 'INCREASE_QUANTITY',
+            id
 
         })
     }
 
-    decrement() {
+    decrement(id) {
+        
         store.disptach({
             type: 'DECREASES_QUANTITY',
-
+            id
         })
     }
 
-    remove(cartItems, e) {
-        e.preventDefault();
+    remove(id) {
         store.dispatch({
-            type: 'REMOVE_QUANTITY',
-            cartItems
+            type: 'REMOVE_ITEM',
+            id
         })
         console.log(store.getState())
     }
     
-    checkout(e) {
-        e.preventDefault();
+    checkout() {
+
         alert("Your purchase is ready!")
     }
     render() {
         return (
             <div>
                 <h1 className="cartHeader">Your Cart</h1>
-                <div className="ui small items">
+                <div className="ui small items productsContainer">
                     {store.getState().cartItems.map(product => {
-                        const { productName, id, image, price } = product;
+                        const { productName, id, image, price, quantity } = product;
                         return(
                         <div key={id} id={id} className="item cartItem">
                             <div className="image">
@@ -56,15 +57,15 @@ class Cart extends React.Component {
                                 <div className="extra">${price}</div>
                                 <div className="description right floated">
                                     <span>Quantity</span>
-                                    <span className="quantityBox">0</span>
+                                    <span className="quantityBox">{quantity}</span>
                                     <div className="ui  mini icon buttons">
-                                        <button className="ui button" onClick={this.increment}>
+                                        <button className="ui button" onClick={(() => this.increment(product.id))}>
                                             <i className="plus icon"></i>
                                         </button>
-                                        <button className="ui button" onClick={this.decrement}>
+                                        <button className="ui button" onClick={(() => this.decrement(product.id))}>
                                             <i className="minus icon"></i>
                                         </button>
-                                        <button className="ui button" onClick={(e) => this.remove(this, e)}>
+                                        <button className="ui button" onClick={() => this.remove(product.id)}>
                                             <i className="delete icon"></i>
                                         </button>
                                     </div>
@@ -76,7 +77,7 @@ class Cart extends React.Component {
                     )}
                 </div>
                 <div className="card right floated">
-                    <button className="ui button right floated"  onClick={((e) => this.checkout(e))}>Proceed to Checkout</button>
+                    <button className="ui button right floated"  onClick={()=> this.checkout()}>Proceed to Checkout</button>
                 </div>
             </div>
 

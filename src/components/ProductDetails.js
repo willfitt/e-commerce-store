@@ -14,7 +14,7 @@ class ProductDetails extends React.Component {
             type: 'ADD_TO_CART',
             cartItems
         })
-        console.log(store.getState())
+        console.log("current cart:", store.getState())
     }
 
     render() {

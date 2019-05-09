@@ -99,3 +99,7 @@ footer {
   max-height: 100px;
   display: block;
 }
+
+.productsContainer{
+  padding-bottom: 50px;
+}

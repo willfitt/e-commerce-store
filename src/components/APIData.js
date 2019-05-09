@@ -21,12 +21,14 @@ class APIData extends React.Component {
             image: `${product.img}`,
             price: `${product.price}`,
             rating: `${product.rating}`,
-            category: `${product.category}`
+            category: `${product.category}`,
+            quantity: 1
           }))
         })
-        console.log(store.getState())
+        console.log("current store:", store.getState())
       }
       )
+      store.subscribe(() => this.forceUpdate())
   }
   componentWillUnmount() {
     this._isMounted = false;
@@ -38,13 +40,13 @@ class APIData extends React.Component {
         type: 'ADD_TO_CART',
         cartItems
     })
-    console.log(store.getState())
-}
+    console.log("current cart:", store.getState().cartItems)
+  }
   render() {
     return (
       <React.Fragment>
         <div>
-          <div className="ui four stackable cards">
+          <div className="ui four stackable cards productsContainer">
             {!false ? (
               store.getState().products.map(product => {
                 const { productName, id, image, rating, price } = product;

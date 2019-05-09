@@ -9,16 +9,13 @@ function cartReducer(state = [], action) {
             )
             return newCartItems
         case 'INCREASE_QUANTITY':
-            // LOGIC
+            
             return  state
         case 'DECREASE_QUANTITY':
-            // LOGIC
+            
             return  state
-        case 'REMOVE_ITEM':
-            // return state.cartItems.filter(item => action.cartItems.id !== state.id)  
-            let removedStore = [...state]
-            removedStore = []
-            return removedStore
+        case 'REMOVE_ITEM':            
+            return state.filter(cartItem => cartItem.id !== action.id)
         default:
             return state
     }
