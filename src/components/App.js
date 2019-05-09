@@ -25,9 +25,6 @@ class App extends React.Component {
           <Link className="item" to="/ProductPage">
             Products
           </Link>
-          <Link className="item" to="/ProductDetails">
-            ProductDetails
-          </Link>
           <Link className="item right" to="/Cart">
             <i className="fas fa-shopping-cart"></i>
           </Link>
@@ -51,7 +48,7 @@ class App extends React.Component {
           <footer className="ui two item menu">
             <div className="item">Questions? Email products@thiswebsite.com</div>
             <div className="item"><div>Like us? Follow us on twitter!</div><i className="fab fa-twitter"></i>
-</div>
+            </div>
           </footer>
         </div>
 

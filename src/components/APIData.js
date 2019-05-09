@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import store from '../store'
-import ProductDetailsRoute from './ProductDetailsRoute'
 import { Link } from 'react-router-dom'
 
 class APIData extends React.Component {

@@ -23,7 +23,7 @@ class ProductDetails extends React.Component {
         })
         return (
             <div>
-                <div className="ui card">
+                <div className="ui centered card">
                     <div className="image">
                         <img className="detailsImage" src={product.image} alt={product.productName}></img>
                     </div>
@@ -44,5 +44,6 @@ class ProductDetails extends React.Component {
     }
 
 }
+
 
 export default ProductDetails

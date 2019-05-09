@@ -1,10 +1,13 @@
 import React from 'react'
 import store from '../store'
+import { Link } from 'react-router-dom'
+
 
 class Cart extends React.Component {
 
     componentDidMount() {
         store.subscribe(() => this.forceUpdate())
+
     }
 
     increment() {
@@ -21,28 +24,36 @@ class Cart extends React.Component {
         })
     }
 
-    remove() {
+    remove(cartItems, e) {
+        e.preventDefault();
         store.dispatch({
             type: 'REMOVE_QUANTITY',
-
+            cartItems
         })
+        console.log(store.getState())
     }
-    //src={image} alt={productName} PUT IN IMAGE ONCE STORE IS CONNECTED
+    
+    checkout(e) {
+        e.preventDefault();
+        alert("Your purchase is ready!")
+    }
     render() {
         return (
             <div>
                 <h1 className="cartHeader">Your Cart</h1>
-                <div className="ui items">
+                <div className="ui small items">
                     {store.getState().cartItems.map(product => {
-                        const { productName, id, image, rating, price } = product;
+                        const { productName, id, image, price } = product;
                         return(
-                        <div className="item cartItem">
+                        <div key={id} id={id} className="item cartItem">
                             <div className="image">
-                                <img src={image} alt={productName}></img>
+                                <Link to={'/ProductDetails/'+id}>
+                                  <img className="cartImage" src={image} alt={productName}></img>
+                                </Link>
                             </div>
                             <div className="content">
                                 <p className="header">{productName}</p>
-                                <div className="extra">Description</div>
+                                <div className="extra">${price}</div>
                                 <div className="description right floated">
                                     <span>Quantity</span>
                                     <span className="quantityBox">0</span>
@@ -53,7 +64,7 @@ class Cart extends React.Component {
                                         <button className="ui button" onClick={this.decrement}>
                                             <i className="minus icon"></i>
                                         </button>
-                                        <button className="ui button" onClick={this.remove}>
+                                        <button className="ui button" onClick={(e) => this.remove(this, e)}>
                                             <i className="delete icon"></i>
                                         </button>
                                     </div>
@@ -65,8 +76,7 @@ class Cart extends React.Component {
                     )}
                 </div>
                 <div className="card right floated">
-                    <h4 className="cartTotal">$100.00</h4>
-                    <button className="ui button right floated">Proceed to Checkout</button>
+                    <button className="ui button right floated"  onClick={((e) => this.checkout(e))}>Proceed to Checkout</button>
                 </div>
             </div>
 
