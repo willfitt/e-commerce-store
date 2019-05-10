@@ -4,16 +4,33 @@ function cartReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TO_CART':
             let newCartItems = [...state]
-            newCartItems.push(
-                action.cartItems
-            )
+            if(!newCartItems.some(arr => arr['id'] === action.id)){
+                newCartItems.push(
+                    action.cartItems
+                )
+                console.log('id', action.cartItems.id)
+            }
             return newCartItems
         case 'INCREASE_QUANTITY':
-            
-            return  state
+            let incItems = [...state]
+            let incItem = incItems.find(cartItem => cartItem.id === action.id)
+            let incQuantity = incItem.quantity + 1 
+            let incQtyItem = Object.assign({}, incItem, { quantity: incQuantity })
+            let incQtyItemArr = [incQtyItem]
+            let incUpdatedState = incItems.map(newQty => incQtyItemArr.find(n => n.id === newQty.id) || newQty)
+            return incUpdatedState
         case 'DECREASE_QUANTITY':
-            
-            return  state
+            let decItems = [...state]
+            let decItem = decItems.find(cartItem => cartItem.id === action.id)
+            if (decItem.quantity === 0) {
+                return state
+            }else {
+                let decQuantity = decItem.quantity - 1
+                let decQtyItem = Object.assign({}, decItem, { quantity: decQuantity })
+                let decQtyItemArr = [decQtyItem]
+                let decUpdatedState = decItems.map(newQty => decQtyItemArr.find(n => n.id === newQty.id) || newQty)
+                return decUpdatedState
+            }
         case 'REMOVE_ITEM':            
             return state.filter(cartItem => cartItem.id !== action.id)
         default:

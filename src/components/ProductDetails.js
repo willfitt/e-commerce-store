@@ -8,8 +8,7 @@ class ProductDetails extends React.Component {
         
     }
 
-    addToCart(cartItems, e) {
-        e.preventDefault();
+    addToCart(cartItems) {
         store.dispatch({
             type: 'ADD_TO_CART',
             cartItems
@@ -32,7 +31,7 @@ class ProductDetails extends React.Component {
                     </div>
                     <div className="extra content">
                         <span className="right floated">
-                            <button className="ui button" onClick={(e) => this.addToCart(product, e)}>Add to Cart</button>
+                            <button className="ui button" onClick={() => this.addToCart(product)}>Add to Cart</button>
                         </span>
                         <span className="priceStyle">
                             {product.price}

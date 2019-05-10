@@ -34,8 +34,7 @@ class APIData extends React.Component {
     this._isMounted = false;
   }
 
-  addToCart(cartItems, e) {
-    e.preventDefault();
+  addToCart(cartItems) {
     store.dispatch({
         type: 'ADD_TO_CART',
         cartItems
@@ -66,7 +65,7 @@ class APIData extends React.Component {
                       <h4 className="priceStyle">${price}</h4>
                     </div>
                     <div className="content">
-                      <div className="ui bottom attached button" onClick={(e) => this.addToCart(product, e)}>Add to Cart</div>
+                      <div className="ui bottom attached button" onClick={() => this.addToCart(product)}>Add to Cart</div>
                     </div>
                   </div>
                 );

@@ -2,7 +2,6 @@ import React from 'react'
 import store from '../store'
 import { Link } from 'react-router-dom'
 
-
 class Cart extends React.Component {
 
     componentDidMount() {
@@ -19,9 +18,8 @@ class Cart extends React.Component {
     }
 
     decrement(id) {
-        
-        store.disptach({
-            type: 'DECREASES_QUANTITY',
+        store.dispatch({
+            type: 'DECREASE_QUANTITY',
             id
         })
     }
@@ -59,10 +57,10 @@ class Cart extends React.Component {
                                     <span>Quantity</span>
                                     <span className="quantityBox">{quantity}</span>
                                     <div className="ui  mini icon buttons">
-                                        <button className="ui button" onClick={(() => this.increment(product.id))}>
+                                        <button className="ui button" onClick={() => this.increment(product.id)}>
                                             <i className="plus icon"></i>
                                         </button>
-                                        <button className="ui button" onClick={(() => this.decrement(product.id))}>
+                                        <button className="ui button" onClick={() => this.decrement(product.id)}>
                                             <i className="minus icon"></i>
                                         </button>
                                         <button className="ui button" onClick={() => this.remove(product.id)}>
