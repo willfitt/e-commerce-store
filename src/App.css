@@ -103,3 +103,7 @@ footer {
 .productsContainer{
   padding-bottom: 50px;
 }
+
+.cartMessage{
+  text-align: center
+}

@@ -4,10 +4,8 @@ import store from '../store'
 import { Link } from 'react-router-dom'
 
 class APIData extends React.Component {
-  _isMounted = false;
 
   componentDidMount() {
-    this._isMounted = true;
     store.subscribe(() => this.forceUpdate)
     axios
       .get("https://my-json-server.typicode.com/tdmichaelis/typicode/products")
@@ -28,25 +26,23 @@ class APIData extends React.Component {
         console.log("current store:", store.getState())
       }
       )
-      store.subscribe(() => this.forceUpdate())
-  }
-  componentWillUnmount() {
-    this._isMounted = false;
+    store.subscribe(() => this.forceUpdate())
   }
 
   addToCart(cartItems) {
     store.dispatch({
-        type: 'ADD_TO_CART',
-        cartItems
+      type: 'ADD_TO_CART',
+      cartItems
     })
     console.log("current cart:", store.getState().cartItems)
   }
+
   render() {
     return (
       <React.Fragment>
         <div>
           <div className="ui four stackable cards productsContainer">
-            {!false ? (
+            {
               store.getState().products.map(product => {
                 const { productName, id, image, rating, price } = product;
                 return (
@@ -56,11 +52,11 @@ class APIData extends React.Component {
                       <i className="right floated star icon"></i>
                       <div className="productPageCardTitle">{productName}</div>
                     </div>
-                      <div className="ui image">
-                        <Link to={'/ProductDetails/'+id}>
-                          <img className="ui image listImage" src={image} alt={productName}></img>
-                        </Link>
-                      </div>
+                    <div className="ui image">
+                      <Link to={'/ProductDetails/' + id}>
+                        <img className="ui image listImage" src={image} alt={productName}></img>
+                      </Link>
+                    </div>
                     <div className="content">
                       <h4 className="priceStyle">${price}</h4>
                     </div>
@@ -70,29 +66,7 @@ class APIData extends React.Component {
                   </div>
                 );
               })
-            ) : (
-                store.getState().products.map(product => {
-                  const { productName, id, image, rating, price } = product;
-                  return (
-                    <div key={id} id={id} className="ui fluid card">
-                      <div className="content">
-                        <div className="right floated meta">{rating}</div>
-                        <i className="right floated star icon"></i>
-                        <div className="productPageCardTitle">{productName}</div>
-                      </div>
-                      <div className="ui image clickableCard">
-                        <img className="ui mini image" src={image} alt={productName}></img>
-                      </div>
-                      <div className="content">
-                        <h4 className="priceStyle">${price}</h4>
-                      </div>
-                      <div className="content">
-                        <div className="ui bottom attached button">Add to Cart</div>
-                      </div>
-                    </div>
-                  );
-                })
-              )}
+            }
           </div>
 
         </div>
