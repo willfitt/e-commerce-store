@@ -31,10 +31,10 @@ class ProductDetails extends React.Component {
                     </div>
                     <div className="extra content">
                         <span className="right floated">
-                            <button className="ui button" onClick={() => this.addToCart(product)}>Add to Cart</button>
+                            <button className="ui button" onClick={() => this.addToCart(product, product.id)}>Add to Cart</button>
                         </span>
                         <span className="priceStyle">
-                            {product.price}
+                            ${product.price}
                     </span>
                     </div>
                 </div>

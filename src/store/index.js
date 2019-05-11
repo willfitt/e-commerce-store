@@ -3,10 +3,12 @@ import { createStore, combineReducers } from 'redux'
 function cartReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TO_CART':
+
             let newCartItems = [...state]
-            if(!newCartItems.some(arr => arr['id'] === action.id)){
+            console.log('cartItems', action.cartItems)
+            if(!newCartItems.find(item => item.id === action.cartItems.id)){
                 newCartItems.push(
-                    action.cartItems
+                   action.cartItems
                 )
                 console.log('id', action.cartItems.id)
             }
@@ -24,7 +26,7 @@ function cartReducer(state = [], action) {
             let decItem = decItems.find(cartItem => cartItem.id === action.id)
             if (decItem.quantity === 0) {
                 return state
-            }else {
+            } else {
                 let decQuantity = decItem.quantity - 1
                 let decQtyItem = Object.assign({}, decItem, { quantity: decQuantity })
                 let decQtyItemArr = [decQtyItem]
@@ -52,6 +54,10 @@ function productsReducer(state = [], action) {
     switch (action.type) {
         case 'CREATE_ITEMS':
             return action.productItems
+        case 'FILTER_ITEMS':
+            let searchArr = [...state]
+            return searchArr.contains()
+
         default: 
             return state
     }
