@@ -2,6 +2,7 @@
   "name": "e-commerce-store",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://willfitt.github.io/e-commerce-store",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
@@ -33,7 +34,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "homepage": "https://willfitt.github.io/e-commerce-store/"
+    ]
   }
 }
