@@ -1,6 +1,9 @@
 import { createStore, combineReducers } from 'redux'
 
+let baseProducts = []
+
 function cartReducer(state = [], action) {
+    
     switch (action.type) {
         case 'ADD_TO_CART':
             let newCartItems = [...state]
@@ -52,16 +55,16 @@ function userReducer(state = "", action) {
 function productsReducer(state = [], action) {
     switch (action.type) {
         case 'CREATE_ITEMS':
-            return action.productItems
+            let products = action.productItems
+            baseProducts = products;
+            return products
         case 'FILTER_ITEMS':
-            let newState = [...state]
+            let newState = baseProducts
             let val = action.value.toLowerCase()
             let filterData = newState.filter(item => item.productName.toLowerCase().includes(val));
-            console.log("filtered:", filterData)
             return filterData
         case 'RESET_FILTER':
-            console.log("cleared", state)
-            return state
+            return baseProducts
         default:
             return state
     }
