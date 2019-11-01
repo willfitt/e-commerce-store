@@ -1,18 +1,12 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch
-} from 'react-router-dom'
-import '../App.css'
+import React from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import "../App.css";
 
 // Components
-import ProductPage from './ProductPage'
-import Cart from './Cart'
-import Login from './Login'
-import ProductDetails from './ProductDetails';
-
+import ProductPage from "./ProductPage";
+import Cart from "./Cart";
+import Login from "./Login";
+import ProductDetails from "./ProductDetails";
 
 class App extends React.Component {
   render() {
@@ -31,29 +25,41 @@ class App extends React.Component {
         </div>
 
         <Switch>
-          <Route exact path="/" render={() => (
-            <div>
-              <Login />
-            </div>
-          )} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div>
+                <Login />
+              </div>
+            )}
+          />
           <Route path="/ProductPage" component={ProductPage} />
           <Route path="/Cart" component={Cart} />
           <Route path="/ProductDetails/:id" component={ProductDetails} />
 
-          <Route render={() => (
-            <div> 404 Not found </div>
-          )} />
+          <Route
+            render={() => (
+              <div>
+                {" "}
+                404 Not found (click on product page when seeing this){" "}
+              </div>
+            )}
+          />
         </Switch>
         <div>
           <footer className="ui two item menu">
-            <div className="item">Questions? Email products@thiswebsite.com</div>
-            <div className="item"><div>Like us? Follow us on twitter!</div><i className="fab fa-twitter"></i>
+            <div className="item">
+              Questions? Email products@thiswebsite.com
+            </div>
+            <div className="item">
+              <div>Like us? Follow us on twitter!</div>
+              <i className="fab fa-twitter"></i>
             </div>
           </footer>
         </div>
-
       </Router>
-    )
+    );
   }
 }
 
